@@ -108,6 +108,21 @@ function M.setup()
         DiagnosticUnderlineInfo  = { sp = colors.blue, underline = true },
         DiagnosticUnderlineHint  = { sp = colors.cyan, underline = true },
         DiagnosticUnderlineOk    = { sp = colors.green, underline = true },
+
+        -- Neo-tree Base
+        NeoTreeNormal = { fg = colors.base04, bg = colors.base01 },
+        NeoTreeNormalNC = { fg = colors.base03, bg = colors.base01 },
+        
+        -- Neo-tree Diretórios e Arquivos
+        NeoTreeDirectoryName = { fg = colors.blue, bold = true },
+        NeoTreeDirectoryIcon = { fg = colors.cyan },
+        NeoTreeFileName = { fg = colors.base04 },
+        
+        -- Neo-tree Git Status
+        NeoTreeGitAdded = { fg = colors.green },
+        NeoTreeGitModified = { fg = colors.yellow },
+        NeoTreeGitDeleted = { fg = colors.red },
+        NeoTreeGitUntracked = { fg = colors.magenta },
     }
     for group, opts in pairs(highlights) do
         vim.api.nvim_set_hl(0, group, opts)
