@@ -1,28 +1,37 @@
-local palette = require("solarized-black.palette")
+local colors = require("solarized-dark.colors")
 
--- Define o contraste de fundo para as seções A (ícone do modo) e B (nome do arquivo)
+-- Tema lualine baseado diretamente na paleta solarized-dark
 local theme = {
   normal = {
-    a = { fg = palette.bg, bg = palette.blue, gui = "bold" },
-    b = { fg = palette.fg, bg = palette.bg_highlight },
-    c = { fg = palette.fg, bg = palette.bg },
+    a = { fg = colors.base01, bg = colors.blue, gui = "bold" },
+    b = { fg = colors.base04, bg = colors.base02 },
+    c = { fg = colors.base04, bg = colors.base01 },
   },
   insert = {
-    a = { fg = palette.bg, bg = palette.green, gui = "bold" },
+    a = { fg = colors.base01, bg = colors.green, gui = "bold" },
+    b = { fg = colors.base01, bg = colors.base02, gui = "bold" }, -- nome do arquivo em modo insert (destacado)
+    c = { fg = colors.base04, bg = colors.base01 },
   },
   visual = {
-    a = { fg = palette.bg, bg = palette.magenta, gui = "bold" },
+    a = { fg = colors.base01, bg = colors.magenta, gui = "bold" },
+    b = { fg = colors.base04, bg = colors.base02 }, -- nome do arquivo em modo visual
+    c = { fg = colors.base04, bg = colors.base01 },
   },
   replace = {
-    a = { fg = palette.bg, bg = palette.orange, gui = "bold" },
+    a = { fg = colors.base01, bg = colors.orange, gui = "bold" },
+    b = { fg = colors.base04, bg = colors.base02 },
+    c = { fg = colors.base04, bg = colors.base01 },
   },
   command = {
-    a = { fg = palette.bg, bg = palette.yellow, gui = "bold" },
+    a = { fg = colors.base01, bg = colors.yellow, gui = "bold" },
+    b = { fg = colors.base04, bg = colors.base02 },
+    c = { fg = colors.base04, bg = colors.base01 },
   },
+  -- modos especiais e inativos
   inactive = {
-    a = { fg = palette.comment, bg = palette.bg },
-    b = { fg = palette.comment, bg = palette.bg },
-    c = { fg = palette.comment, bg = palette.bg },
+    a = { fg = colors.base03, bg = colors.base01 },
+    b = { fg = colors.base03, bg = colors.base01 },
+    c = { fg = colors.base03, bg = colors.base01 },
   },
 }
 
