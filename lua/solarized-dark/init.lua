@@ -4,126 +4,122 @@ local colors = require("solarized-dark.colors")
 function M.setup()
     local highlights = {
         -- Interface UI
-        ColorColumn  = { bg = colors.base02 }, -- Coluna limite de caracteres
-        Conceal      = { bg = "NONE" }, -- Elementos ocultos/substituídos
-        Cursor       = { fg = colors.base04, bg = colors.base02 }, -- Cursor principal
-        -- CursorColumn = { bg = "" }, -- Destaca coluna do cursor
-        CursorLine   = { bg = colors.base02 }, -- Destaca linha do cursor
-        Directory    = { fg = colors.base04 }, -- Nomes de diretórios no netrw/Telescope
-        EndOfBuffer  = { fg = colors.base04 }, -- Tils (~) no fim do arquivo
-        ErrorMsg     = { fg = colors.base04, bg = colors.red }, -- Mensagens de erro no cmdline
-        WinSeparator = { fg = colors.base02 }, -- Bordas entre splits (Antigo VertSplit)
-        Folded       = { bg = colors.base04 }, -- Código minimizado (fold)
-        SignColumn   = { fg = colors.magenta }, -- Coluna lateral (ícones de git, lsp)
-        IncSearch    = { fg = colors.base02, bg = colors.yellow }, -- Destaque 'incremental search'
-        LineNr       = { fg = colors.base03 }, -- Números das linhas
-        CursorLineNr = { fg = colors.base04, bold = true }, -- Número da linha atual
-        MatchParen   = { fg = colors.base04, bg = colors.base03, bold = true }, -- Pares de parênteses/chaves
-        ModeMsg      = { fg = colors.blue, bold = true }, -- Mensagem de modo (ex: -- INSERT --)
-        MsgArea      = { fg = colors.base03 }, -- Área de mensagens (cmdline inferior)
-        MoreMsg      = { fg = colors.blue }, -- Mensagem "-- Mais --"
-        NonText      = { fg = colors.base03 }, -- Caracteres invisíveis (ex: eol, extends)
-        Normal       = { fg = colors.base04, bg = colors.base01 }, -- Fundo e texto principal
-        NormalFloat  = { fg = colors.base04, bg = colors.base02 }, -- Fundo de janelas flutuantes
-        FloatBorder  = { fg = colors.blue }, -- Borda de janelas flutuantes
-        NormalNC     = { fg = colors.base03, bg = colors.base01 }, -- Fundo de janelas inativas
-        Question     = { fg = colors.yellow }, -- Prompts de confirmação
-        StatusLine   = { fg = colors.base02, bg = colors.base04 }, -- Linha de status ativa
-        StatusLineNC = { fg = colors.base04, bg = colors.base02 }, -- Linha de status inativa
-        TabLine      = { fg = colors.base03, bg = colors.base01 }, -- Abas não selecionadas
-        TabLineFill  = { bg = colors.base01 }, -- Fundo vazio da linha de abas
-        TabLineSel   = { fg = colors.base04, bg = colors.base04, bold = true }, -- Aba selecionada
-        Title        = { fg = colors.base04, bold = true }, -- Títulos de saídas HTML/Menus
-        Visual       = { bg = colors.base03 }, -- Seleção de texto no modo Visual
-        VisualNOS    = { bg = colors.base03 }, -- Seleção não-proprietária do Vim
-        WarningMsg   = { fg = colors.orange }, -- Mensagens de aviso
-        Whitespace   = { fg = colors.base03 }, -- Espaços, tabs lidos como non-text
-        WildMenu     = { fg = colors.base04, bg = colors.base03 }, -- Menu de autocompletar do cmdline
-        WinBar       = { fg = colors.base04, bg = colors.base01 }, -- Barra superior da janela
-        WinBarNC     = { fg = colors.base03, bg = colors.base01 }, -- Barra superior da janela inativa
+        ColorColumn          = { bg = colors.base02 },
+        Conceal              = { bg = "NONE" },
+        Cursor               = { fg = colors.text, bg = colors.base02 },
+        CursorLine           = { bg = colors.base02 },
+        Directory            = { fg = colors.blue },
+        EndOfBuffer          = { fg = colors.base05 },
+        ErrorMsg             = { fg = colors.text, bg = colors.red },
+        WinSeparator         = { fg = colors.border },
+        Folded               = { bg = colors.base02 },
+        SignColumn           = { fg = colors.magenta },
+        IncSearch            = { fg = colors.base01, bg = colors.orange },
+        LineNr               = { fg = colors.comment },
+        CursorLineNr         = { fg = colors.base04, bold = true },
+        MatchParen           = { fg = colors.text, bg = colors.border, bold = true },
+        ModeMsg              = { fg = colors.blue, bold = true },
+        MsgArea              = { fg = colors.comment },
+        MoreMsg              = { fg = colors.blue },
+        NonText              = { fg = colors.comment },
+        Normal               = { fg = colors.text, bg = colors.base01 },
+        NormalFloat          = { fg = colors.text, bg = colors.base02 },
+        FloatBorder          = { fg = colors.border },
+        NormalNC             = { fg = colors.comment, bg = colors.base01 },
+        Question             = { fg = colors.yellow },
+        StatusLine           = { fg = colors.base01, bg = colors.text },
+        StatusLineNC         = { fg = colors.text, bg = colors.base02 },
+        TabLine              = { fg = colors.comment, bg = colors.base01 },
+        TabLineFill          = { bg = colors.base01 },
+        TabLineSel           = { fg = colors.text, bg = colors.base02, bold = true },
+        Title                = { fg = colors.base04, bold = true },
+        Visual               = { bg = colors.border },
+        VisualNOS            = { bg = colors.border },
+        WarningMsg           = { fg = colors.orange },
+        Whitespace           = { fg = colors.border },
+        WildMenu             = { fg = colors.text, bg = colors.base02 },
+        WinBar               = { fg = colors.text, bg = colors.base01 },
+        WinBarNC             = { fg = colors.comment, bg = colors.base01 },
 
         -- Popup Menu (Autocompletar)
-        Pmenu        = { fg = colors.base04, bg = colors.base02 }, -- Item normal do menu
-        PmenuSel     = { fg = colors.base01, bg = colors.base04 }, -- Item selecionado
-        PmenuSbar    = { bg = colors.base02 }, -- Barra de rolagem
-        PmenuThumb   = { bg = colors.base03 }, -- Indicador da barra de rolagem
+        Pmenu                = { fg = colors.text, bg = colors.base02 },
+        PmenuSel             = { fg = colors.base01, bg = colors.blue },
+        PmenuSbar            = { bg = colors.base02 },
+        PmenuThumb           = { bg = colors.border },
 
-        -- Ortografia (Spell)
-        SpellBad     = { sp = colors.red, undercurl = true }, -- Palavra errada
-        SpellCap     = { sp = colors.yellow, undercurl = true }, -- Erro de capitalização
-        SpellLocal   = { sp = colors.magenta, undercurl = true }, -- Palavra local desconhecida
-        SpellRare    = { sp = colors.violet, undercurl = true }, -- Palavra rara
+        -- Spell
+        SpellBad             = { sp = colors.red, undercurl = true },
+        SpellCap             = { sp = colors.orange, undercurl = true },
+        SpellLocal           = { sp = colors.magenta, undercurl = true },
+        SpellRare            = { sp = colors.violet, undercurl = true },
 
         -- Diffs
-        DiffAdd      = { bg = colors.green }, -- Linhas adicionadas
-        DiffChange   = { bg = colors.yellow }, -- Linhas alteradas
-        DiffDelete   = { fg = colors.red, bg = colors.base02 }, -- Linhas deletadas
-        DiffText     = { bg = colors.blue }, -- Texto exato alterado na linha
+        DiffAdd              = { bg = colors.green },
+        DiffChange           = { bg = colors.yellow },
+        DiffDelete           = { fg = colors.red, bg = colors.base01 },
+        DiffText             = { bg = colors.blue },
 
-        -- Sintaxe Base
-        Comment      = { fg = colors.base03, italic = true },
-        Constant     = { fg = colors.cyan },
-        String       = { fg = colors.green },
-        Character    = { fg = colors.green },
-        Number       = { fg = colors.magenta },
-        Boolean      = { fg = colors.orange },
-        Float        = { fg = colors.magenta },
-        Identifier   = { fg = colors.green },
-        Function     = { fg = colors.blue },
-        Statement    = { fg = colors.red },
-        Conditional  = { fg = colors.red },
-        Repeat       = { fg = colors.blue },
-        Label        = { fg = colors.cyan },
-        Operator     = { fg = colors.red },
-        Keyword      = { fg = colors.violet },
-        Exception    = { fg = colors.orange },
-        PreProc      = { fg = colors.orange },
-        Include      = { fg = colors.violet },
-        Define       = { fg = colors.orange },
-        Macro        = { fg = colors.orange },
-        PreCondit    = { fg = colors.orange },
-        Type         = { fg = colors.cyan },
-        StorageClass = { fg = colors.violet },
-        Structure    = { fg = colors.violet },
-        Typedef      = { fg = colors.violet },
-        Special      = { fg = colors.blue },
-        SpecialChar  = { fg = colors.base04 },
-        Tag          = { fg = colors.magenta },
-        Delimiter    = { fg = colors.base04 },
-        SpecialComment = { fg = colors.base03 },
-        Debug        = { fg = colors.red },
-        Underlined   = { underline = true },
-        Ignore       = { fg = colors.base02 },
-        Error        = { fg = colors.red, bg = colors.base01 },
-        Todo         = { fg = colors.yellow, bg = colors.base02, bold = true },
+        -- Syntax
+        Comment              = { fg = colors.comment, italic = true },
+        Constant             = { fg = colors.base05 },
+        String               = { fg = colors.green },
+        Character            = { fg = colors.green },
+        Number               = { fg = colors.magenta },
+        Boolean              = { fg = colors.magenta },
+        Float                = { fg = colors.magenta },
+        Identifier           = { fg = colors.base03 },
+        Function             = { fg = colors.blue },
+        Statement            = { fg = colors.orange },
+        Conditional          = { fg = colors.orange },
+        Repeat               = { fg = colors.orange },
+        Label                = { fg = colors.cyan },
+        Operator             = { fg = colors.orange },
+        Keyword              = { fg = colors.orange },
+        Exception            = { fg = colors.red },
+        PreProc              = { fg = colors.orange },
+        Include              = { fg = colors.orange },
+        Define               = { fg = colors.orange },
+        Macro                = { fg = colors.magenta },
+        PreCondit            = { fg = colors.orange },
+        Type                 = { fg = colors.cyan },
+        StorageClass         = { fg = colors.cyan },
+        Structure            = { fg = colors.cyan },
+        Typedef              = { fg = colors.cyan },
+        Special              = { fg = colors.blue },
+        SpecialChar          = { fg = colors.base04 },
+        Tag                  = { fg = colors.magenta },
+        Delimiter            = { fg = colors.text },
+        SpecialComment       = { fg = colors.comment },
+        Debug                = { fg = colors.red },
+        Underlined           = { underline = true },
+        Ignore               = { fg = colors.base02 },
+        Error                = { fg = colors.red, bg = colors.base01 },
+        Todo                 = { fg = colors.yellow, bg = colors.base02, bold = true },
 
-        -- Diagnósticos LSP
-        DiagnosticError = { fg = colors.red },
-        DiagnosticWarn  = { fg = colors.orange },
-        DiagnosticInfo  = { fg = colors.blue },
-        DiagnosticHint  = { fg = colors.cyan },
-        DiagnosticOk    = { fg = colors.green },
+        -- LSP diagnostics
+        DiagnosticError      = { fg = colors.red },
+        DiagnosticWarn       = { fg = colors.orange },
+        DiagnosticInfo       = { fg = colors.blue },
+        DiagnosticHint       = { fg = colors.cyan },
+        DiagnosticOk         = { fg = colors.green },
         DiagnosticUnderlineError = { sp = colors.red, underline = true },
         DiagnosticUnderlineWarn  = { sp = colors.orange, underline = true },
         DiagnosticUnderlineInfo  = { sp = colors.blue, underline = true },
         DiagnosticUnderlineHint  = { sp = colors.cyan, underline = true },
         DiagnosticUnderlineOk    = { sp = colors.green, underline = true },
 
-        -- Neo-tree Base
-        NeoTreeNormal = { fg = colors.base04, bg = colors.base01 },
-        NeoTreeNormalNC = { fg = colors.base03, bg = colors.base01 },
-        
-        -- Neo-tree Diretórios e Arquivos
-        NeoTreeDirectoryName = { fg = colors.blue, bold = true },
-        NeoTreeDirectoryIcon = { fg = colors.cyan },
-        NeoTreeFileName = { fg = colors.base04 },
-        
-        -- Neo-tree Git Status
-        NeoTreeGitAdded = { fg = colors.green },
-        NeoTreeGitModified = { fg = colors.yellow },
-        NeoTreeGitDeleted = { fg = colors.red },
-        NeoTreeGitUntracked = { fg = colors.magenta },
+        -- Neo-tree
+        NeoTreeNormal        = { fg = colors.text, bg = colors.base01 },
+        NeoTreeNormalNC      = { fg = colors.comment, bg = colors.base01 },
+        NeoTreeDirectoryName  = { fg = colors.blue, bold = true },
+        NeoTreeDirectoryIcon  = { fg = colors.cyan },
+        NeoTreeFileName      = { fg = colors.text },
+        NeoTreeGitAdded      = { fg = colors.green },
+        NeoTreeGitModified    = { fg = colors.yellow },
+        NeoTreeGitDeleted    = { fg = colors.red },
+        NeoTreeGitUntracked   = { fg = colors.magenta },
     }
+
     for group, opts in pairs(highlights) do
         vim.api.nvim_set_hl(0, group, opts)
     end
