@@ -1,4 +1,8 @@
-vim.cmd('clearcolors')
-vim.g.colors_name = 'solarized-black'
+vim.cmd('highlight clear')
+if vim.fn.exists("syntax_on") then
+  vim.cmd("syntax reset")
+end
 
-require('solarized-black').setup()
+vim.g.colors_name = 'solarized-dark'
+
+require('solarized-dark').setup()
