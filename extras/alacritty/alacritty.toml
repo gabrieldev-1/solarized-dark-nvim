@@ -1,0 +1,53 @@
+[window]
+dimensions = { columns = 120, lines = 30 }
+dynamic_padding = true
+decorations = "None"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold   = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+size = 12.0
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.primary]
+background = "#000000"
+foreground = "#E8E3D9"
+
+[colors.cursor]
+text = "#000000"
+cursor = "#E81F0C"
+
+[colors.selection]
+text = "#E8E3D9"
+background = "#9A64B4"
+
+[colors.normal]
+black   = "#000000"
+red     = "#E81F0C"
+green   = "#85B464"
+yellow  = "#D9C077"
+blue    = "#4D9BCB"
+magenta = "#9A64B4"
+cyan    = "#5EBAB3"
+white   = "#E8E3D9"
+
+[colors.bright]
+black   = "#010D00"
+red     = "#F29F05"
+green   = "#A3C87B"
+yellow  = "#E7D09D"
+blue    = "#78B9E6"
+magenta = "#BF8CD0"
+cyan    = "#89D8D0"
+white   = "#F5F1E9"
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
